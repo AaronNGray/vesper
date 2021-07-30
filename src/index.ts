@@ -89,9 +89,9 @@ export function buildVesperSchema(options?: SchemaBuilderOptions): Promise<Graph
  * Vesper Express middleware.
  * You can use it in your own express setup.
  */
-export function vesper(schema: any, options?: object) {
+export function vesper(schema: any, options?: any) {
     const allOptions: any = {
-        context: {},
+        context: { ...(options || options.context)},
         schema: schema,
         ...(options || {})
     };
